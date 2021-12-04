@@ -16,11 +16,13 @@ int main ( void ) {
             i = 0;
     }
 
-    for ( int i = 0; i < BIN_LEN; i++ ) {
+    int power = 1;
+    for ( int i = BIN_LEN - 1; i >= 0; i-- ) {
         if ( digits[ i ] > 0 ) digits [ i ] = 1;
         else digits [ i ] = 0;
-        gamma += digits[ i ] * 2;
-        epsilon += !digits[ i ] * 2;
+        gamma += digits[ i ] * power;
+        epsilon += !digits[ i ] * power;
+        power *= 2;
     }
     printf( "Power consumption: %d\n", gamma * epsilon );
     return 0;
